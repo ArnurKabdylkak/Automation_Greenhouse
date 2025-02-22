@@ -1026,7 +1026,7 @@ int main(void) {
 		_delay_ms(2);       // Delay after clear
 		
 		if (displayToggle == 0) {
- 200:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <_end>
+ 200:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <displayToggle>
  204:	81 11       	cpse	r24, r1
  206:	05 c0       	rjmp	.+10     	; 0x212 <main+0x4e>
 			// Show DHT11 data (humidity and temperature)
@@ -1045,10 +1045,10 @@ int main(void) {
 		
 		displayToggle = !displayToggle;  // Toggle state (0 -> 1, 1 -> 0)
  21a:	81 e0       	ldi	r24, 0x01	; 1
- 21c:	90 91 05 01 	lds	r25, 0x0105	; 0x800105 <_end>
+ 21c:	90 91 05 01 	lds	r25, 0x0105	; 0x800105 <displayToggle>
  220:	91 11       	cpse	r25, r1
  222:	80 e0       	ldi	r24, 0x00	; 0
- 224:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <_end>
+ 224:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <displayToggle>
  228:	9f ef       	ldi	r25, 0xFF	; 255
  22a:	2b e7       	ldi	r18, 0x7B	; 123
  22c:	82 e9       	ldi	r24, 0x92	; 146
